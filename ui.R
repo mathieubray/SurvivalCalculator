@@ -1,7 +1,8 @@
 library(shiny)
 library(dplyr)
 
-notice<-HTML("<b>Companion Paper:</b> Ashby VB, Leichtman AB, Rees MA, Song PXK, Bray M, Wang W, Kalbfleisch JD (2017). A Kidney Graft Survival Calculator that Accounts for Mismatches in Age, Sex, HLA and Body Size. Clinical Journal of the American Society of Nephrology (Accepted 27 March 2017). 
+notice<-HTML("<b>Companion Paper:</b> Ashby VB, Leichtman AB, Rees MA, Song PXK, Bray M, Wang W, Kalbfleisch JD (2017). A Kidney Graft Survival Calculator that Accounts for Mismatches in Age, Sex, HLA and Body Size. Clinical Journal of the American Society of Nephrology. 
+              DOJ: <a href='http://cjasn.asnjournals.org/content/early/2017/06/07/CJN.09330916'>CJN.09330916</a> (Published Online: June 2017). 
               
               <br><br>
 
@@ -16,10 +17,15 @@ notice<-HTML("<b>Companion Paper:</b> Ashby VB, Leichtman AB, Rees MA, Song PXK,
               calculator is at the user's own risk. Users should never disregard professional medical advice or delay in seeking it because of 
               any information provided by the calculator.
 
+              <br><br>
+
+              <b>Updates:</b> 06/13/2017: Replaced DR Mismatch sliders (for both Donor and Comparision Donor) with dropdown menus, which automatically refresh 
+              available options such that the number of DR mismatches cannot be more than the specified number of total HLA mismatches.
+              
               <br><br><br>
 
-              Mathieu Bray 2016. Estimated Kidney Graft Survival Calculator. With contributions from: V. Ashby, A.B. Leichtman, 
-              M.A. Rees, P.X-K. Song, M. Bray, W. Wang, J.D. Kalbfleisch.
+              Mathieu Bray 2017. Estimated Kidney Graft Survival Calculator. With contributions from: Ashby VB, Leichtman AB, 
+              Rees MA, Song PXK, Wang W, Kalbfleisch JD.
 ")
 
 shinyUI(fluidPage(
@@ -200,10 +206,13 @@ shinyUI(fluidPage(
                                               label="HLA Mismatches",
                                               min=0,max=6,value=0,step=1)
         ),
-        column(3,sliderInput("d.dr.mismatches",
-                                              label="DR Mismatches",
-                                              min=0,max=2,value=0,step=1)
+        
+        column(3,selectInput("d.dr.mismatches",
+                               label="DR Mismatches",
+                               choices=c(0),
+                               selected=0)
         )
+        
       ),
       
       fluidRow(
@@ -279,10 +288,12 @@ shinyUI(fluidPage(
                                                 label="HLA Mismatches",
                                                 min=0,max=6,value=0,step=1)
           ),
-          column(3,sliderInput("c.dr.mismatches",
+          column(3,selectInput("c.dr.mismatches",
                                                 label="DR Mismatches",
-                                                min=0,max=2,value=0,step=1)
+                                                choices=c(0),
+                                                selected=0)
           )
+          
         ),
       
         fluidRow(
