@@ -364,11 +364,11 @@ survivalCalculator<-function(fiveyear,donor,recip){
 shinyServer(function(input, output, session) {
   
   observeEvent(input$d.hla.mismatches, {
-    updateSelectInput(session, 'd.dr.mismatches', choices=0:input$d.hla.mismatches, selected=ifelse(input$d.dr.mismatches <= input$d.hla.mismatches,input$d.dr.mismatches,input$d.hla.mismatches))
+    updateSelectInput(session, 'd.dr.mismatches', choices=0:min(2,input$d.hla.mismatches), selected=ifelse(input$d.dr.mismatches <= input$d.hla.mismatches,input$d.dr.mismatches,input$d.hla.mismatches))
   })
   
   observeEvent(input$c.hla.mismatches, {
-    updateSelectInput(session, 'c.dr.mismatches', choices=0:input$c.hla.mismatches, selected=ifelse(input$c.dr.mismatches <= input$c.hla.mismatches,input$c.dr.mismatches,input$c.hla.mismatches))
+    updateSelectInput(session, 'c.dr.mismatches', choices=0:min(2,input$c.hla.mismatches), selected=ifelse(input$c.dr.mismatches <= input$c.hla.mismatches,input$c.dr.mismatches,input$c.hla.mismatches))
   })
   
   updateDonor<-reactive({

@@ -2,7 +2,7 @@ library(shiny)
 library(dplyr)
 
 notice<-HTML("<b>Companion Paper:</b> Ashby VB, Leichtman AB, Rees MA, Song PXK, Bray M, Wang W, Kalbfleisch JD (2017). A Kidney Graft Survival Calculator that Accounts for Mismatches in Age, Sex, HLA and Body Size. Clinical Journal of the American Society of Nephrology. 
-              DOJ: <a href='http://cjasn.asnjournals.org/content/early/2017/06/07/CJN.09330916'>CJN.09330916</a> (Published Online: June 2017). 
+              DOI: <a href='http://cjasn.asnjournals.org/content/early/2017/06/07/CJN.09330916'>CJN.09330916</a> (Published Online: June 2017). 
               
               <br><br>
 

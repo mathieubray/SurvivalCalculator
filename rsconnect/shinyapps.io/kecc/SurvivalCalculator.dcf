@@ -2,6 +2,6 @@ name: SurvivalCalculator
 account: kecc
 server: shinyapps.io
 appId: 150467
-bundleId: 865481
+bundleId: 867517
 url: https://kecc.shinyapps.io/SurvivalCalculator/
-when: 1497370631.12803
+when: 1497477225.27296
